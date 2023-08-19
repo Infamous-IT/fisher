@@ -35,6 +35,8 @@ public class Fish {
     @ManyToOne
     private User user;
 
+    public Fish(){}
+
     public Fish(String name, Double weight, Place place, Blob photo, String description) {
         this.name = name;
         this.weight = weight;
