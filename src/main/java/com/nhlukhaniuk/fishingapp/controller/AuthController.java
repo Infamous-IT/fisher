@@ -1,7 +1,6 @@
 package com.nhlukhaniuk.fishingapp.controller;
 
 import com.nhlukhaniuk.fishingapp.auth.JwtCore;
-import com.nhlukhaniuk.fishingapp.auth.config.SecurityConfig;
 import com.nhlukhaniuk.fishingapp.dto.UserDTO;
 import com.nhlukhaniuk.fishingapp.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +22,15 @@ public class AuthController {
     private UserServiceImpl userService;
     private JwtCore jwtCore;
 
+    private AuthenticationManager authenticationManager;
+
 
     @Autowired
-    public AuthController(PasswordEncoder passwordEncoder, UserServiceImpl userService, JwtCore jwtCore) {
+    public AuthController(PasswordEncoder passwordEncoder, UserServiceImpl userService, JwtCore jwtCore, @Qualifier("authenticationManager") AuthenticationManager authenticationManager) {
         this.passwordEncoder = passwordEncoder;
         this.userService = userService;
         this.jwtCore = jwtCore;
+        this.authenticationManager = authenticationManager;
     }
 
     @PostMapping("/signup")
@@ -48,8 +50,8 @@ public class AuthController {
         return ResponseEntity.ok("Creation success!");
     }
 
-    @PostMapping("/signin")
-    ResponseEntity<?> signIn(@RequestBody UserDTO userDTO, AuthenticationManager authenticationManager) {
+    @PostMapping("/sign_in")
+    ResponseEntity<?> signIn(@RequestBody UserDTO userDTO) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         userDTO.getUsername(), userDTO.getPassword()));

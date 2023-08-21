@@ -3,8 +3,6 @@ package com.nhlukhaniuk.fishingapp.dto;
 import com.nhlukhaniuk.fishingapp.model.Fish;
 import com.nhlukhaniuk.fishingapp.model.Roles;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.List;
 import java.util.UUID;

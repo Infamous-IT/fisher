@@ -2,7 +2,6 @@ package com.nhlukhaniuk.fishingapp.auth.config;
 
 import com.nhlukhaniuk.fishingapp.auth.TokenFilter;
 import com.nhlukhaniuk.fishingapp.service.UserServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -28,7 +27,6 @@ public class SecurityConfig {
     private UserServiceImpl userService;
     private TokenFilter tokenFilter;
 
-    @Autowired
     public SecurityConfig(UserServiceImpl userService, TokenFilter tokenFilter) {
         this.userService = userService;
         this.tokenFilter = tokenFilter;

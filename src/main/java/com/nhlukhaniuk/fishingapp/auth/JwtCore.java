@@ -1,5 +1,6 @@
 package com.nhlukhaniuk.fishingapp.auth;
 
+
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
