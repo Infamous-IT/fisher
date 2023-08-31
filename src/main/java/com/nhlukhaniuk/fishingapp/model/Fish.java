@@ -26,8 +26,8 @@ public class Fish {
     @Enumerated(EnumType.STRING)
     private Place place;
 
-    @Column(name = "photos")
-    private Blob photo;
+//    @Column(name = "photos")
+//    private Blob photo;
 
     @Column(name = "description")
     private String description;
@@ -37,19 +37,19 @@ public class Fish {
 
     public Fish(){}
 
-    public Fish(String name, Double weight, Place place, Blob photo, String description) {
+    public Fish(String name, Double weight, Place place, /*Blob photo*/ String description) {
         this.name = name;
         this.weight = weight;
         this.place = place;
-        this.photo = photo;
+//        this.photo = photo;
         this.description = description;
     }
 
-    public Fish(String name, Double weight, Place place, Blob photo, String description, User user) {
+    public Fish(String name, Double weight, Place place, /*Blob photo*/ String description, User user) {
         this.name = name;
         this.weight = weight;
         this.place = place;
-        this.photo = photo;
+//        this.photo = photo;
         this.description = description;
         this.user = user;
     }
