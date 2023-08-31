@@ -24,23 +24,23 @@ public class FishController {
         return fishService.get();
     }
 
-    @GetMapping(value = "/:id")
-    public FishDTO get(UUID id) {
+    @GetMapping(value = "/{id}")
+    public FishDTO get(@PathVariable UUID id) {
         return fishService.getById(id);
     }
 
     @PostMapping(value = "/create")
-    public FishDTO create(FishDTO fishDTO) {
+    public FishDTO create(@RequestBody FishDTO fishDTO) {
         return fishService.create(fishDTO);
     }
 
     @PostMapping(value = "/update")
-    public FishDTO update(FishDTO fishDTO) {
+    public FishDTO update(@RequestBody FishDTO fishDTO) {
         return fishService.update(fishDTO);
     }
 
-    @DeleteMapping(value = "/:id")
-    public void delete(UUID id) {
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable UUID id) {
         fishService.delete(id);
     }
 }

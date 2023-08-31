@@ -28,7 +28,7 @@ public class UserController {
 //    }
 
     @PostMapping(value = "/create")
-    public UserDTO create(UserDTO userDTO) {
+    public UserDTO create(@RequestBody UserDTO userDTO) {
         return userService.create(userDTO);
     }
 
@@ -37,18 +37,18 @@ public class UserController {
         return userService.get();
     }
 
-    @GetMapping(value = "/:id")
-    public UserDTO get(UUID id) {
+    @GetMapping(value = "/{id}")
+    public UserDTO get(@PathVariable UUID id) {
         return userService.getById(id);
     }
 
     @PostMapping(value = "/update")
-    public UserDTO update(UserDTO userDTO) {
+    public UserDTO update(@RequestBody UserDTO userDTO) {
         return userService.update(userDTO);
     }
 
-    @DeleteMapping(value = "/:id")
-    public void delete(UUID id) {
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable UUID id) {
         userService.delete(id);
     }
 }
