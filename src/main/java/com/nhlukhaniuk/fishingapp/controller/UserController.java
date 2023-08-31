@@ -43,7 +43,7 @@ public class UserController {
         return userService.getById(id);
     }
 
-    @PostMapping(value = "/update")
+    @PatchMapping(value = "/{id}")
     public UserDTO update(@RequestBody UserDTO userDTO) {
         return userService.update(userDTO);
     }
